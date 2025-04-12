@@ -46,6 +46,12 @@ export class Game {
         if (!this.pauseGameFlag) {
             clearInterval(this.interval);
             this.pauseGameFlag = true;
+            // отрисуем паузу
+            this.context.fillStyle = 'black';
+            this.context.font = 'bold 48px Arial';
+            this.context.textAlign = 'center';
+            this.context.fillText('Пауза!..',
+                (this.positionsCount * this.positionsSize) / 2, (this.positionsCount * this.positionsSize) / 2);
         } else {
             this.interval = setInterval(this.gameProcess.bind(this), 150)
             this.pauseGameFlag = false;
